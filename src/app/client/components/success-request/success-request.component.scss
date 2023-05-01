@@ -1,0 +1,32 @@
+
+.body-text {
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  color: #666666;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 41px;
+  .add-cart-button {
+    color: #FFFFFF;
+    font-style: normal;
+    padding: 12px 76px 11px 76px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 0;
+    width: 359px;
+    height: 51px;
+    background: #F44242;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+

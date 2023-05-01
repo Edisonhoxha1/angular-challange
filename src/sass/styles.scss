@@ -1,0 +1,60 @@
+@import './variables';
+@import './mixins';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+:root {
+  --text-color: #333333;
+  --headertext-color: #333333;
+  --dark-mode-icon: #333333;
+  --bkg-color: #fff;
+  --price-color: #F44242;
+  --btn-txt-color: white;
+  --btn-bg-color: rgb(11, 88, 160);
+}
+body.dark-theme {
+  --text-color: #eee;
+  --headertext-color: #999999;
+  --dark-mode-icon: #999999;
+  --bkg-color: #333333;
+  --price-color: #0bbdbd;
+  --btn-txt-color: rgb(46, 43, 43);
+  --btn-bg-color: rgb(20, 211, 195);
+}
+body {
+  margin: 0;
+}
+
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    @each $i in $productListBack {
+      $index: index($productListBack, $i);
+
+      .product-#{$index - 1} {
+        background-color: $i;
+      }
+    }
+  } @else {
+    @each $i in $productListDarkBack {
+      $index: index($productListDarkBack, $i);
+
+      .product-#{$index - 1} {
+        background-color: $i;
+      }
+    }
+  }
+}
+@include theme-colors($light-theme: true);
+
+body.dark-theme {
+    @include theme-colors($light-theme: false);
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Helvetica; }
+
+.shopping-cart-dialog {
+  position: absolute !important;
+  bottom: 0;
+}

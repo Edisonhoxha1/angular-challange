@@ -1,0 +1,19 @@
+<div class="shopping-cart">
+  <ng-container *ngFor="let item of shoppingCartItems$ | async">
+    <div class="items">
+      <p class="product-name">{{item.name}}</p>
+      <p class="quantity">{{item.quantity}}</p>
+      <p class="price">{{item.totalPrice | number : '1.0-0'}}</p>
+    </div>
+  </ng-container>
+  <hr class="line">
+  <div class="total">
+    <span class="product-name">Total:</span>
+    <span></span>
+    <span class="price">{{totalPrice | number : '1.0-0'}}</span>
+  </div>
+  <div class="button">
+    <button class="add-cart-button" (click)="finishInvoice()">Dergo Faturen</button>
+  </div>
+</div>
+

@@ -1,0 +1,30 @@
+@import "src/sass/variables";
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 55px;
+  background: #999999;
+  overflow-y: hidden;
+}
+
+.menu {
+  overflow-x: scroll;
+  .category-name {
+    padding: 16px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 23px;
+    display: inline-block;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: $font-family;
+  }
+  .selected {
+    color: #F44242;
+  }
+
+}
+
+
+

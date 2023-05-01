@@ -1,0 +1,87 @@
+$fontText: Helvetica;
+
+.header-bar-section {
+  width: 100%;
+  height: 46px;
+  left: 0;
+  top: 0;
+  background-color: var(--bkg-color);
+}
+
+.nav-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bkg-color);
+  .left-nav-section {
+    display: flex;
+    align-items: center;
+    .business-name {
+      text-align: center;
+      top: 50%;
+      p {
+        margin: 0;
+      }
+      :nth-child(1) {
+        height: 28px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        text-transform: capitalize;
+        color: var(--headertext-color);
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      :nth-child(2) {
+        height: 20px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 17px;
+        line-height: 20px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        text-transform: lowercase;
+        color: var(--headertext-color);
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+    }
+  }
+}
+.logo{
+  height: 64px;
+  width: 64px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 16px 16px 16px 24px;
+}
+
+.dark-mode-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--dark-mode-icon);
+  border: 5px solid var(--dark-mode-icon);
+  overflow: hidden;
+  transform: rotate(145deg);
+  margin-right: 30.5px;
+}
+
+.semi-circle-mode {
+  width: 100%;
+  height: 50%;
+  background-color: var(--bkg-color);
+  overflow: hidden;
+}
+
+
+
+
