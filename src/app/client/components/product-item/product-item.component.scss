@@ -5,8 +5,11 @@
   position: relative;
 }
 .product-details {
-  width: auto;
+  width: 100%;
   font-family: $font-family;
+  height: 100%;
+  position: relative;
+
   .productName {
     margin: 0;
     text-align: left;
@@ -19,16 +22,23 @@
     color: var(--text-color);
     position: absolute;
     bottom: 0;
+    width: 100%;
+    word-break: break-word;
   }
   .unitPrice {
-    transform: rotate(-90deg);
     color: var(--price-color);
-    position: absolute;
-    right: -26px;
-    top: 38px;
     margin: 0;
     font-size: 20px;
     font-weight: 700;
+    position: absolute;
+    right: 25px;
+    transform-origin: right;
+    transform: rotate(-90deg);
+    width: 200px;
+    height: 22px;
+    display: flex;
+    justify-content: end;
+    padding: 0 10px;
   }
 }
 
@@ -46,7 +56,7 @@
   font-weight: 400;
   font-size: 115px;
   line-height: 123px;
-  color: rgba(255, 255, 255, 0.15);
+  color: #ffffff80;
   transform: rotate(17.11deg);
   position: absolute;
   left: 25px;

@@ -1,7 +1,8 @@
 .items {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 36px;
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  margin-bottom: 10px;
 }
 
 .product-name {
@@ -22,8 +23,12 @@
   font-size: 20px;
   line-height: 28px;
   color: #666666;
-  width: 35px;
+  background: #F7F7F7;
+  border: none;
+  width: 90px;
+  height: 42px;
 }
+
 
 .price {
   font-weight: 700;
@@ -34,6 +39,7 @@
   text-align: right;
   text-transform: uppercase;
   color: #F44242;
+  margin: 0;
 }
 
 .total {

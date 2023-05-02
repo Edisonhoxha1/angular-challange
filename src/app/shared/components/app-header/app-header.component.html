@@ -4,7 +4,7 @@
     <section class="nav-section">
       <div class="left-nav-section">
         <div class="logo">
-          <img src="{{logoUrl}}">
+          <img src="data:image/png;base64,{{logoUrl}}" *ngIf="logoUrl">
         </div>
         <span class="business-name">
             <p>{{profileDetails.businessName}}</p>

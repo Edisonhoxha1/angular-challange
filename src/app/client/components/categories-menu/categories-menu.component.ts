@@ -22,9 +22,9 @@ export class CategoriesMenuComponent implements OnInit {
     this.categoriesService.setProducts(productList);
   }
 
-  scrollMovie() {
+  scrollMovie(id: number) {
     const container = this.elRef.nativeElement.querySelector('.menu');
-    const inputwidth = this.elRef.nativeElement.querySelector('#slide');
+    const inputwidth = this.elRef.nativeElement.querySelector('#slide-'+id);
     container.scrollLeft += inputwidth.offsetWidth;
 
   }

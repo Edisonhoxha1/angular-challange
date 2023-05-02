@@ -2,7 +2,7 @@
   <ng-container *ngFor="let item of shoppingCartItems$ | async">
     <div class="items">
       <p class="product-name">{{item.name}}</p>
-      <p class="quantity">{{item.quantity}}</p>
+      <input class="quantity" type="number" [(ngModel)]="item.quantity" (ngModelChange)="changeQuantityValue(item)">
       <p class="price">{{item.totalPrice | number : '1.0-0'}}</p>
     </div>
   </ng-container>

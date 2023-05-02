@@ -1,7 +1,6 @@
 <div class="menu">
-  <div *ngFor="let category of categoriesList" (click)="getProductList(category.products)">
-    <div id="slide" class="category-name" (click)="scrollMovie(); selectedCategory = category.id"
-         [ngClass]="{ 'selected': selectedCategory === category.id }">
+  <div *ngFor="let category of categoriesList" id="slide-{{category.id}}" (click)="getProductList(category.products);scrollMovie(category.id); selectedCategory = category.id">
+    <div class="category-name" [ngClass]="{ 'selected': selectedCategory === category.id }">
       {{category.name}}
     </div>
   </div>

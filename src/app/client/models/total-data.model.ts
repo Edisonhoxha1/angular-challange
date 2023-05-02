@@ -15,6 +15,7 @@ export interface CategoryModel {
 export interface ProductModel {
   name: string;
   unitPrice: number;
+  quantity: number;
 }
 
 
