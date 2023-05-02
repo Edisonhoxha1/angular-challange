@@ -62,6 +62,13 @@ $fontText: Helvetica;
   order: 0;
   flex-grow: 0;
   margin: 16px 16px 16px 24px;
+
+  img {
+    width: 100%;
+    background: azure;
+    border-radius: 50%;
+    height: 100%;
+  }
 }
 
 .dark-mode-circle {

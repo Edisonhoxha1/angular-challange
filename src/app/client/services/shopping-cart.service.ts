@@ -8,7 +8,7 @@ import {ShoppingCartItemsModel} from "../models/shopping-cart.model";
 })
 export class ShoppingCartService {
 
-  private shoppingCartItems = new BehaviorSubject<ShoppingCartItemsModel[]>([]);
+  shoppingCartItems = new BehaviorSubject<ShoppingCartItemsModel[]>([]);
   shoppingCartItems$ = this.shoppingCartItems.asObservable();
 
   constructor() { }

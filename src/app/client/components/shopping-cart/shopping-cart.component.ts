@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ShoppingCartService} from "../../services/shopping-cart.service";
-import {distinctUntilChanged, tap} from "rxjs";
+import {distinctUntilChanged, elementAt, tap} from "rxjs";
 import {ShoppingCartItemsModel} from "../../models/shopping-cart.model";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {SuccessRequestComponent} from "../success-request/success-request.component";
+import * as events from "events";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,10 +13,13 @@ import {SuccessRequestComponent} from "../success-request/success-request.compon
 })
 export class ShoppingCartComponent implements OnInit {
 
+  allProducts!: ShoppingCartItemsModel[];
+
   shoppingCartItems$ = this.shoppingCartService.shoppingCartItems$.pipe(
     distinctUntilChanged(),
     tap((data: ShoppingCartItemsModel[]) => {
       this.totalPrice = this.getTotalPrice(data)
+      this.allProducts = data;
       return data
     })
   );
@@ -30,13 +34,35 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getTotalPrice(cartItems: ShoppingCartItemsModel[]): number {
-    return cartItems.reduce((total, item) => total + (item.totalPrice * item.quantity), 0);
+    let totalPrice = cartItems.map(item => item.totalPrice);
+    return totalPrice.reduce((acc, curr) => acc + curr, 0);
+  }
+
+  changeQuantityValue(value: any) {
+    const currentCart = this.shoppingCartService.shoppingCartItems.getValue();
+    const itemIndex = currentCart.findIndex(item => item.name === value.name);
+    if(value.quantity != null) {
+      if(Number(value.quantity) == 0) {
+        this.allProducts.splice(itemIndex, 1);
+      } else if(value.quantity) {
+        const updatedArray = this.allProducts.map((value) => {
+          let product = currentCart.find(el => el.name === value.name)
+          if(product) {
+            product.totalPrice = product.unitPrice * Number(product.quantity);
+          }
+          return product;
+        });
+      }
+      this.totalPrice = this.getTotalPrice(this.allProducts);
+    }
+
   }
 
   finishInvoice() {
-    this.dialogRef.close()
+    this.dialogRef.close();
+    this.shoppingCartService.shoppingCartItems.next([]);
     this.matDialog.open(SuccessRequestComponent, {})
-
   }
 
+  protected readonly events = events;
 }
